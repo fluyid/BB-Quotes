@@ -18,6 +18,7 @@
 		C26DC7DC2B59A5BE002808B3 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26DC7DB2B59A5BE002808B3 /* Constants.swift */; };
 		C26DC7DF2B5A5715002808B3 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26DC7DE2B5A5715002808B3 /* ViewModel.swift */; };
 		C26DC7E12B5A7628002808B3 /* QuoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26DC7E02B5A7628002808B3 /* QuoteView.swift */; };
+		C26DC7E32B5AD5B3002808B3 /* CharacterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26DC7E22B5AD5B3002808B3 /* CharacterView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		C26DC7DD2B5A5079002808B3 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		C26DC7DE2B5A5715002808B3 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		C26DC7E02B5A7628002808B3 /* QuoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteView.swift; sourceTree = "<group>"; };
+		C26DC7E22B5AD5B3002808B3 /* CharacterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +71,7 @@
 				C26DC7C52B599210002808B3 /* BB_QuotesApp.swift */,
 				C26DC7C72B599210002808B3 /* ContentView.swift */,
 				C26DC7E02B5A7628002808B3 /* QuoteView.swift */,
+				C26DC7E22B5AD5B3002808B3 /* CharacterView.swift */,
 				C26DC7DE2B5A5715002808B3 /* ViewModel.swift */,
 				C26DC7D92B59999D002808B3 /* FetchController.swift */,
 				C26DC7D52B5995FB002808B3 /* Quote.swift */,
@@ -167,6 +170,7 @@
 				C26DC7E12B5A7628002808B3 /* QuoteView.swift in Sources */,
 				C26DC7DA2B59999D002808B3 /* FetchController.swift in Sources */,
 				C26DC7D82B599718002808B3 /* Character.swift in Sources */,
+				C26DC7E32B5AD5B3002808B3 /* CharacterView.swift in Sources */,
 				C26DC7DC2B59A5BE002808B3 /* Constants.swift in Sources */,
 				C26DC7DF2B5A5715002808B3 /* ViewModel.swift in Sources */,
 			);
