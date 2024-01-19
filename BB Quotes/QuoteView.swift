@@ -14,52 +14,54 @@ struct QuoteView: View {
     var body: some View {
         GeometryReader { geo in
             ZStack {
-                Image(show.lowercased().filter { $0 != " " }) // ensures that there is no space
+                Image(show.lowerNoSpaces) // ensures that there is no space
                     .resizable()
                     .frame(width: geo.size.width * 2.7, height: geo.size.height * 1.2)
                 
                 VStack {
-                    Spacer(minLength: 140)
-                    
-                    switch viewModel.status {
-                    case .success(let data):
-                        Text("\"\(data.quote.quote)\"")
-                            .minimumScaleFactor(0.5)
-                            .multilineTextAlignment(.center)
-                            .foregroundColor(.white)
-                            .padding()
-                            .background(.black.opacity(0.5))
-                            .cornerRadius(25)
-                            .padding(.horizontal)
+                    VStack {
+                        Spacer(minLength: 140)
                         
-                        ZStack(alignment: .bottom) {
-                            AsyncImage(url: data.character.images[0]) { image in
-                                image
-                                    .resizable()
-                                    .scaledToFill()
-                            } placeholder: {
-                                ProgressView()
+                        switch viewModel.status {
+                        case .success(let data):
+                            Text("\"\(data.quote.quote)\"")
+                                .minimumScaleFactor(0.5)
+                                .multilineTextAlignment(.center)
+                                .foregroundColor(.white)
+                                .padding()
+                                .background(.black.opacity(0.5))
+                                .cornerRadius(25)
+                                .padding(.horizontal)
+                            
+                            ZStack(alignment: .bottom) {
+                                AsyncImage(url: data.character.images[0]) { image in
+                                    image
+                                        .resizable()
+                                        .scaledToFill()
+                                } placeholder: {
+                                    ProgressView()
+                                }
+                                .frame(width: geo.size.width/1.1, height: geo.size.height/1.8)
+                                .cornerRadius(80)
+                                
+                                
+                                Text(data.quote.character)
+                                    .foregroundColor(.white)
+                                    .padding(10)
+                                    .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/) // it makes the jesse box take the whole bottom
+                                    .background(.ultraThinMaterial)
                             }
                             .frame(width: geo.size.width/1.1, height: geo.size.height/1.8)
                             .cornerRadius(80)
-
                             
-                            Text(data.quote.character)
-                                .foregroundColor(.white)
-                                .padding(10)
-                                .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/) // it makes the jesse box take the whole bottom
-                                .background(.ultraThinMaterial)
+                        case .fetching:
+                            ProgressView()
+                            
+                        default:
+                            EmptyView()
                         }
-                        .frame(width: geo.size.width/1.1, height: geo.size.height/1.8)
-                        .cornerRadius(80)
-                        
-                    case .fetching:
-                        ProgressView()
-                        
-                    default:
-                        EmptyView()
+                        Spacer()
                     }
-                    Spacer()
                     
                     Button {
                         Task {
@@ -70,9 +72,9 @@ struct QuoteView: View {
                             .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
                             .foregroundColor(.white)
                             .padding()
-                            .background(.breakingBadGreen)
+                            .background(Color("\(show.noSpaces)Button"))
                             .cornerRadius(7)
-                            .shadow(color: .breakingBadYellow, radius: 2)
+                            .shadow(color: Color("\(show.noSpaces)Shadow"), radius: 2)
                         
                     }
                     Spacer(minLength: 180)
@@ -87,6 +89,6 @@ struct QuoteView: View {
 }
 
 #Preview {
-    QuoteView(show: "Breaking Bad")
+    QuoteView(show: Constants.bbName)
         .preferredColorScheme(/*@START_MENU_TOKEN@*/.dark/*@END_MENU_TOKEN@*/)
 }
