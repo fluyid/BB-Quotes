@@ -16,9 +16,10 @@ struct QuoteView: View {
                     .frame(width: geo.size.width * 2.7, height: geo.size.height * 1.2)
                 
                 VStack {
-                    Spacer()
+                    Spacer(minLength: 140)
                     
                     Text("\"You either run from things, or you face them, Mr. White.\"")
+                        .minimumScaleFactor(0.5)
                         .multilineTextAlignment(.center)
                         .foregroundColor(.white)
                         .padding()
@@ -42,17 +43,19 @@ struct QuoteView: View {
                     
                     Spacer()
                     
-                    Button("Get Random Quote") {
+                    Button {
+                        
+                    } label: { // if label is not added you can only tap on the words but not then whole button
+                        Text("Get Random Quote")
+                            .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
+                            .foregroundColor(.white)
+                            .padding()
+                            .background(.breakingBadGreen)
+                            .cornerRadius(7)
+                            .shadow(color: .breakingBadYellow, radius: 2)
                         
                     }
-                    .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
-                    .foregroundColor(.white)
-                    .padding()
-                    .background(.breakingBadGreen)
-                    .cornerRadius(7)
-                    .shadow(color: .breakingBadYellow, radius: 2)
-                    
-                    Spacer()
+                    Spacer(minLength: 180)
                 }
                 .frame(width: geo.size.width)
             }
